@@ -63,7 +63,7 @@ Add the following to the *AddIdentityWasm.Server.csproj* file:
 
 ### No Scaffolding
 
-Visual Studio has a scaffolding wizard for adding ASP.NET Core Identity features. However, as of this writing (Mid-July 2023) the scaffold-generated code has not caught up to what's in the Blazor WebAssembly  template with **Individual Accounts**. Rather than use the scaffolding wizard, I'm going to give you all the little pieces you can add to an existing project. 
+Visual Studio has a scaffolding wizard for adding ASP.NET Core Identity features. However, as of this writing (Mid-July 2023) the scaffold-generated code has not caught up to what's in the Blazor WebAssembly  template with **Individual Accounts**. Rather than use the scaffolding wizard, I'm going to give you all the little pieces that you can add to an existing project. 
 
 Add the following sections to the *appsettings.json* file:
 
@@ -208,11 +208,11 @@ Create the database by executing the following command:
 update-database
 ```
 
-Now, if you open the **SQL Server Object Explorer** and expand **MSSQLLocalDb**, and then **Databases**, you'll see the **AddIdentityWasm** database listed.
+When complete, open the **SQL Server Object Explorer** and expand **MSSQLLocalDb**, and then **Databases**. You'll see the **AddIdentityWasm** database listed.
 
 <img src="images/image-20230726141606100.png" alt="image-20230726141606100" style="zoom: 67%;" />
 
-Add the following to the *\Controllers* folder:
+Add the following to the *Controllers* folder:
 
 *OidcConfigurationController.cs*:
 
@@ -243,7 +243,7 @@ public class OidcConfigurationController : Controller
 }
 ```
 
-Create a folder called *Areas\Identity\Pages\Shared* and add the following:
+Create a folder tree - *Areas\Identity\Pages\Shared* - and then add the following:
 
 *_LoginPartial.cshtml*:
 
@@ -350,7 +350,7 @@ The three main changes we made were
 2. Wrapping the `Router` component in a `CascadingAuthenticationState` component.
 3. Implementing code to redirect the user to the login page if they are not logged in and try to access a resource that requires authentication.
 
-Add the following to the *\Shared* folder:
+Add the following to the *Shared* folder:
 
 *RedirectToLogin.razor*:
 
@@ -416,8 +416,6 @@ add `<LoginDisplay />` to *Shared\MainLayout.razor* like so:
     </main>
 </div>
 ```
-
-We added the `LoginDisplay` component in the top bar.
 
 Add the following class to the client project:
 
@@ -494,7 +492,7 @@ public class CustomUserFactory
 }
 ```
 
-In the *AddIdentityWasm.Client Program.cs* file, locate this line where an `HttpClient` is created:
+In the *Program.cs* file, locate this line where an `HttpClient` is created:
 
 ```c#
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
@@ -625,7 +623,7 @@ Click the **Register** link in the top-right. You'll be presented with a screen 
 
 ![image-20230726144643196](images/image-20230726144643196.png)
 
-Enter a user name and password. It doesn't have to be secure, but it does have to meet the basic password requirements. This is your private database on your local machine. My password is "P@ssword1".
+Enter a user name and password. It doesn't have to be elaborate, but it does have to meet the basic password requirements. This is your private database on your local machine. My password is "P@ssword1".
 
 Click the **Register** button and you'll be asked to click on a link in order to confirm your account.
 
