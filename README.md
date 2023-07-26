@@ -12,7 +12,7 @@ The following prerequisites are needed for this demo.
 
 ### Visual Studio 2022
 
-For this demo, we are going to use the latest version of [Visual Studio 2022](https://visualstudio.microsoft.com/vs/community/).
+For this demo, we are going to use the latest version of [Visual Studio 2022](https://visualstudio.microsoft.com/vs/community/). 
 
 ## Definitions:
 
@@ -145,7 +145,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddRoles<IdentityRole>()
+    .AddRoles<IdentityRole>() // Use roles
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddIdentityServer()
@@ -491,6 +491,8 @@ public class CustomUserFactory
     }
 }
 ```
+
+This ensures we can access the **name** and **role** claims on the client side.
 
 In the *Program.cs* file, locate this line where an `HttpClient` is created:
 
@@ -890,5 +892,7 @@ In this module we:
 - Authorized access to code using a `ClaimsPrincipal` object representing the user
 
 To watch a video of me creating this code from scratch check out [BlazorTrain episode 56](https://youtu.be/78nM4z25SkM). 
+
+For more information on the individual elements we added, check out the [official documentation for securing an ASP.NET Core Blazor Hosted WebAssembly app](https://learn.microsoft.com/en-us/aspnet/core/blazor/security/webassembly/hosted-with-identity-server?view=aspnetcore-7.0&tabs=visual-studio).
 
 The complete list of videos with links to code can be found at https://blazortrain.com
