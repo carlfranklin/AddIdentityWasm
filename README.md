@@ -889,6 +889,6 @@ In this module we:
 - Used the **IdentityManagerBlazorServer** app to add roles and assign them
 - Authorized access to code using a `ClaimsPrincipal` object representing the user
 
-To watch a video of me creating this code from scratch check out BlazorTrain episode 56. 
+To watch a video of me creating this code from scratch check out [BlazorTrain episode 56](https://youtu.be/78nM4z25SkM). 
 
 The complete list of videos with links to code can be found at https://blazortrain.com
