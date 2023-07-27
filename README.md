@@ -880,13 +880,16 @@ Run the **AddIdentityWasm** app again, log out, log in, and try the counter butt
 In this module we:
 
 - Created a new Hosted Blazor WebAssembly project without any authentication template code.
-- Modified the Identity Database connection string in *appsettings.json*
-- Added support for Identity Roles on the server side in *Program.cs*
+- Added an Identity Database connection string in *appsettings.json*
+- Configured Identity Server in *appsettings.json* and *appsettings.Development.json*
+- Added support for Auth and Identity Roles on the server side in *Program.cs*
+- Added a dbContext
 - Generated the migration to create the database with the `add-migration` command
 - Generated the database with the `update-database` command
-- Added support code and markup for server-based authentication and authorization
+- Added server-side support code and markup
+- Added client-side support code and markup
 - Ran the app and registered a new user
-- Authorized markup in *NavMenu.razor*
+- Authorized NavLinks in *NavMenu.razor*
 - Authorized the *Counter.razor* and *FetchData.razor* pages
 - Used the **IdentityManagerBlazorServer** app to add roles and assign them
 - Authorized access to code using a `ClaimsPrincipal` object representing the user
